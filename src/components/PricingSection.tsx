@@ -240,7 +240,7 @@ export default function PricingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35 }}
-            className={`grid gap-6 ${isAI ? "max-w-md mx-auto" : "md:grid-cols-3"}`}
+            className="grid gap-6 md:grid-cols-3"
           >
             {currentPlans.map((plan, i) => (
               <motion.div
