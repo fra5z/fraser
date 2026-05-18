@@ -132,7 +132,7 @@ export default function AboutSection() {
           </div>
           <div>
             <p className="text-xl md:text-2xl font-semibold font-display text-gray-700 leading-relaxed mb-4">
-              &ldquo;I believe every UK business deserves a world-class online presence and the power of AI working for them 24/7 — not just the big ones.&rdquo;
+              &ldquo;The online marketplace is global and we can make sure you compete at the highest level.&rdquo;
             </p>
             <p className="text-gray-500 text-sm font-semibold">Fraser Forrest</p>
             <p className="text-gray-400 text-xs">Founder, Frazs</p>
