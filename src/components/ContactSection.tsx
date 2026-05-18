@@ -36,8 +36,18 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("submitting");
-    await new Promise((r) => setTimeout(r, 1800));
-    setFormState("success");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setFormState("success");
+    } catch {
+      setFormState("idle");
+      alert("Something went wrong — please email us directly at fra5er2007@outlook.com");
+    }
   };
 
   return (
