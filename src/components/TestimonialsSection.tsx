@@ -5,6 +5,15 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
+    name: "Paul Brown",
+    role: "Owner",
+    company: "Newcastle Tiles & Adhesives",
+    avatar: "PB",
+    color: "from-blue-600 to-indigo-500",
+    stars: 5,
+    text: "Works great the AI — I had a look and a bit of a play, very impressed!",
+  },
+  {
     name: "James Whitfield",
     role: "Owner",
     company: "Whitfield Plumbing Services",
