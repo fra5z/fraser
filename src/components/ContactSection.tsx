@@ -26,7 +26,7 @@ export default function ContactSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
-  const [form, setForm] = useState({ name: "", business: "", email: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", business: "", email: "", phone: "", service: "", message: "" });
   const [formState, setFormState] = useState<FormState>("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -193,7 +193,7 @@ export default function ContactSection() {
                       Thanks for reaching out. We'll get back to you within 24 hours with a personalised plan.
                     </p>
                     <button
-                      onClick={() => { setFormState("idle"); setForm({ name: "", business: "", email: "", service: "", message: "" }); }}
+                      onClick={() => { setFormState("idle"); setForm({ name: "", business: "", email: "", phone: "", service: "", message: "" }); }}
                       className="mt-6 px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-600 hover:text-gray-900 border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-all"
                     >
                       Send Another
@@ -212,9 +212,15 @@ export default function ContactSection() {
                       </div>
                     </div>
 
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} placeholder="john@business.co.uk" className={inputCls} />
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="email">Email Address *</Label>
+                        <input id="email" name="email" type="email" required value={form.email} onChange={handleChange} placeholder="john@business.co.uk" className={inputCls} />
+                      </div>
+                      <div>
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="07700 900000" className={inputCls} />
+                      </div>
                     </div>
 
                     <div>
