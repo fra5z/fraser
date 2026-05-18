@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 
 const stats = [
@@ -126,8 +127,8 @@ export default function AboutSection() {
             border: "1px solid rgba(59,111,245,0.12)",
           }}
         >
-          <div className="flex-shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white text-3xl font-black font-display shadow-lg">
-            FF
+          <div className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden shadow-lg border-2 border-white" style={{ boxShadow: "0 4px 20px rgba(59,111,245,0.2)" }}>
+            <Image src="/fraser-photo.jpg" alt="Fraser Forrest, Founder of Frazs" width={96} height={96} className="w-full h-full object-cover object-top" />
           </div>
           <div>
             <p className="text-xl md:text-2xl font-semibold font-display text-gray-700 leading-relaxed mb-4">
