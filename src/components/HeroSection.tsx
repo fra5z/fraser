@@ -340,10 +340,10 @@ export default function HeroSection() {
               className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3"
             >
               {[
-                { value: "120+", label: "Websites Built" },
                 { value: "£0",   label: "Setup Fee"      },
                 { value: "24/7", label: "AI Support"     },
-                { value: "98%",  label: "Satisfaction"   },
+                { value: "UK",   label: "Based Agency"   },
+                { value: "Fast", label: "Turnaround"     },
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span className="text-sm font-bold gradient-text">{s.value}</span>
