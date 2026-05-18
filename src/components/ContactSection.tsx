@@ -100,7 +100,7 @@ export default function ContactSection() {
                 30-minute discovery call — no commitment, just a conversation about your goals.
               </p>
               <a
-                href="#"
+                href="mailto:fra5er2007@outlook.com?subject=Book a Free Call — Frazs&body=Hi Fraser, I'd like to book a free 30-minute discovery call."
                 className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg, #3b6ff5, #7c3aed)",

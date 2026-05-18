@@ -1,13 +1,13 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 
 const stats = [
-  { value: 120, suffix: "+", label: "Websites Built" },
-  { value: 2400, suffix: "+", label: "Leads Generated" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 2, suffix: "s", label: "AI Response Time" },
+  { value: "£0",   label: "Setup Fee"        },
+  { value: "24/7", label: "AI Support"        },
+  { value: "UK",   label: "Based Agency"      },
+  { value: "Fast", label: "Turnaround"        },
 ];
 
 const values = [
@@ -37,34 +37,6 @@ const values = [
   },
 ];
 
-function AnimatedCounter({ target, suffix, inView }: { target: number; suffix: string; inView: boolean }) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setValue(target);
-        clearInterval(timer);
-      } else {
-        setValue(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [inView, target]);
-
-  return (
-    <span>
-      {value.toLocaleString()}
-      {suffix}
-    </span>
-  );
-}
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -115,7 +87,7 @@ export default function AboutSection() {
               style={{ border: "1px solid #e2e8f0", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
               <div className="text-4xl md:text-5xl font-black font-display mb-2 gradient-text">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} inView={inView} />
+                {stat.value}
               </div>
               <p className="text-gray-500 text-sm">{stat.label}</p>
             </motion.div>
@@ -143,22 +115,27 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* Mission statement */}
+        {/* Personal bio */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-14 text-center rounded-2xl p-10 relative overflow-hidden"
+          className="mt-14 rounded-2xl p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8"
           style={{
             background: "linear-gradient(135deg, rgba(59,111,245,0.04), rgba(124,58,237,0.04))",
             border: "1px solid rgba(59,111,245,0.12)",
           }}
         >
-          <p className="text-xl md:text-2xl font-semibold font-display text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            &ldquo;We believe every business deserves a world-class online presence and the power of AI
-            working for them 24/7 — not just the big ones.&rdquo;
-          </p>
-          <p className="mt-4 text-gray-400 text-sm">— The Frazs Team</p>
+          <div className="flex-shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white text-3xl font-black font-display shadow-lg">
+            FF
+          </div>
+          <div>
+            <p className="text-xl md:text-2xl font-semibold font-display text-gray-700 leading-relaxed mb-4">
+              &ldquo;I believe every UK business deserves a world-class online presence and the power of AI working for them 24/7 — not just the big ones.&rdquo;
+            </p>
+            <p className="text-gray-500 text-sm font-semibold">Fraser Forrest</p>
+            <p className="text-gray-400 text-xs">Founder, Frazs</p>
+          </div>
         </motion.div>
       </div>
     </section>

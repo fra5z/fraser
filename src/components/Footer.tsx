@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Twitter, Instagram, Linkedin, Phone, Mail, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const footerLinks = {
   Services: [
@@ -138,11 +139,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Frazs by Fraser Forrest. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <button key={item} className="text-gray-400 hover:text-gray-600 text-xs transition-colors">
-                {item}
-              </button>
-            ))}
+            <Link href="/privacy" className="text-gray-400 hover:text-gray-600 text-xs transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>
