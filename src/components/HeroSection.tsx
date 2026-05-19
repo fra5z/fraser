@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import LiquidGlassButton from "@/components/ui/LiquidGlassButton";
+import { WordRotate } from "@/components/ui/WordRotate";
 
 // ─── Browser-window mockup ─────────────────────────────────────────────────────
 function BrowserMockup() {
@@ -294,8 +295,12 @@ export default function HeroSection() {
               className="font-black font-display tracking-tight text-gray-900"
               style={{ fontSize: "clamp(2.2rem, 4.8vw, 4.5rem)", lineHeight: 1.07 }}
             >
-              Websites &amp; AI Assistants
-              <span className="block mt-2 gradient-text">That Grow Your Business</span>
+              We Build{" "}
+              <WordRotate
+                words={["Websites", "AI Chatbots", "Automation"]}
+                className="gradient-text"
+              />
+              <span className="block mt-2">That Grow Your Business</span>
             </motion.h1>
 
             <motion.p

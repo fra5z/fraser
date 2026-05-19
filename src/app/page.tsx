@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TrustStrip from "@/components/TrustStrip";
 import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
 import PortfolioSection from "@/components/PortfolioSection";
@@ -18,6 +19,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <HeroSection />
+      <TrustStrip />
       <ServicesSection />
       <PortfolioSection />
       <PricingSection />

@@ -4,13 +4,14 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import { NumberTicker } from "@/components/ui/NumberTicker";
 
 const stats = [
-  { value: "£0",   label: "Setup Fee"        },
-  { value: "24/7", label: "AI Support"        },
-  { value: "UK",   label: "Based Agency"      },
-  { value: "Fast", label: "Turnaround"        },
-];
+  { ticker: null,  value: "£0",  label: "Setup Fee"        },
+  { ticker: 7,     suffix: " days", value: null, label: "Avg. Delivery"   },
+  { ticker: 100,   suffix: "%",  value: null, label: "Client Ownership"   },
+  { ticker: 24,    suffix: "/7", value: null, label: "AI Support"         },
+] as const;
 
 const values = [
   {
@@ -88,7 +89,15 @@ export default function AboutSection() {
             >
               <SpotlightCard glowColor="blue" className="text-center rounded-2xl p-6 bg-white" style={{ border: "1px solid #e2e8f0", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
               <div className="text-4xl md:text-5xl font-black font-display mb-2 gradient-text">
-                {stat.value}
+                {stat.ticker !== null ? (
+                  <NumberTicker
+                    value={stat.ticker}
+                    suffix={"suffix" in stat ? stat.suffix : ""}
+                    className="gradient-text font-black font-display"
+                  />
+                ) : (
+                  stat.value
+                )}
               </div>
               <p className="text-gray-500 text-sm">{stat.label}</p>
               </SpotlightCard>
