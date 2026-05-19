@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-import AuroraBackground from "@/components/ui/AuroraBackground";
+import ParticleNetwork from "@/components/ui/ParticleNetwork";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -67,8 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
         >
-          {/* Aurora — drifting gradient blobs */}
-          <AuroraBackground />
+          {/* Particle network */}
+          <ParticleNetwork />
         </div>
 
         {/* ── Content layer z:1 ───────────────────────────────────────────
