@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import LiquidGlassButton from "@/components/ui/LiquidGlassButton";
 
 // ─── Browser-window mockup ─────────────────────────────────────────────────────
 function BrowserMockup() {
@@ -314,23 +315,21 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.38 }}
               className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
-              <button
+              <LiquidGlassButton
                 onClick={() => scrollTo("#contact")}
-                className="group flex items-center gap-3 px-8 py-4 text-sm font-bold text-white rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5"
-                style={{
-                  background: "linear-gradient(135deg, #3b6ff5, #7c3aed)",
-                  boxShadow: "0 4px 24px rgba(59,111,245,0.35)",
-                }}
+                variant="primary"
+                className="text-white font-bold"
               >
                 Get Started Free
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </button>
-              <button
+                <ArrowRight size={16} />
+              </LiquidGlassButton>
+              <LiquidGlassButton
                 onClick={() => scrollTo("#pricing")}
-                className="px-8 py-4 text-sm font-semibold text-gray-700 rounded-2xl border border-gray-200 bg-white hover:border-gray-300 hover:text-gray-900 transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+                variant="secondary"
+                className="text-gray-700 font-semibold"
               >
                 View Pricing
-              </button>
+              </LiquidGlassButton>
             </motion.div>
 
             <motion.div
