@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Globe, Bot, Package, Check, ArrowRight } from "lucide-react";
-import SpotlightCard from "@/components/ui/SpotlightCard";
+import AnimatedGradientBorder from "@/components/ui/AnimatedGradientBorder";
 import SectionBadge from "@/components/ui/SectionBadge";
 
 const services = [
@@ -11,10 +11,9 @@ const services = [
     title: "Website Development",
     tagline: "Conversion-first design",
     color: "from-blue-500 to-blue-700",
-    accent: "#3b6ff5",
-    accentLight: "rgba(59,111,245,0.08)",
-    accentBorder: "rgba(59,111,245,0.15)",
-    glowColor: "blue" as const,
+    accentLight: "rgba(59,111,245,0.06)",
+    gradientColors: { primary: "#1a3a8f", secondary: "#3b6ff5", accent: "#93b3ff" },
+    glowSpeed: 9,
     features: [
       "Modern business websites",
       "Mobile responsive design",
@@ -30,10 +29,9 @@ const services = [
     title: "AI Chat Assistants",
     tagline: "24/7 intelligent automation",
     color: "from-violet-600 to-violet-400",
-    accent: "#7c3aed",
-    accentLight: "rgba(124,58,237,0.08)",
-    accentBorder: "rgba(124,58,237,0.2)",
-    glowColor: "purple" as const,
+    accentLight: "rgba(124,58,237,0.06)",
+    gradientColors: { primary: "#3b1f6e", secondary: "#7c3aed", accent: "#c4b5fd" },
+    glowSpeed: 7,
     features: [
       "24/7 customer support",
       "AI-powered lead generation",
@@ -50,10 +48,9 @@ const services = [
     title: "Website + AI Bundle",
     tagline: "The complete solution",
     color: "from-cyan-500 to-blue-500",
-    accent: "#0ea5e9",
-    accentLight: "rgba(14,165,233,0.08)",
-    accentBorder: "rgba(14,165,233,0.15)",
-    glowColor: "cyan" as const,
+    accentLight: "rgba(14,165,233,0.06)",
+    gradientColors: { primary: "#0c4a6e", secondary: "#0ea5e9", accent: "#7dd3fc" },
+    glowSpeed: 11,
     features: [
       "Full business solution",
       "Complete setup & onboarding",
@@ -86,7 +83,6 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="relative py-32 px-6 overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 dot-grid opacity-50" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto">
@@ -107,7 +103,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -116,69 +112,84 @@ export default function ServicesSection() {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               whileHover={{ y: -6 }}
+              className="h-full"
             >
-            <SpotlightCard glowColor={service.glowColor} className="group h-full overflow-hidden cursor-pointer bg-white">
-              {/* Featured badge */}
-              {service.featured && (
-                <div className="absolute top-4 right-4 z-10">
-                  <span
-                    className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase"
-                    style={{
-                      background: "rgba(124,58,237,0.08)",
-                      border: "1px solid rgba(124,58,237,0.2)",
-                      color: "#7c3aed",
-                    }}
-                  >
-                    Most Popular
-                  </span>
-                </div>
-              )}
+              <AnimatedGradientBorder
+                gradientColors={service.gradientColors}
+                animationSpeed={service.glowSpeed}
+                animationMode="auto-rotate"
+                borderWidth={1.5}
+                borderRadius={16}
+                className="h-full cursor-pointer group relative"
+                style={{ height: "100%" }}
+              >
+                {/* Featured badge */}
+                {service.featured && (
+                  <div className="absolute top-4 right-4 z-10">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase"
+                      style={{
+                        background: "rgba(124,58,237,0.1)",
+                        border: "1px solid rgba(124,58,237,0.25)",
+                        color: "#7c3aed",
+                      }}
+                    >
+                      Most Popular
+                    </span>
+                  </div>
+                )}
 
-              {/* Accent top bar */}
-              <div className={`h-1 w-full bg-gradient-to-r ${service.color}`} />
-
-              <div className="p-8">
-                {/* Icon */}
+                {/* Subtle colour wash at card top */}
                 <div
-                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-md`}
-                >
-                  <service.icon size={26} className="text-white" />
-                </div>
-
-                <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
-                  {service.tagline}
-                </p>
-                <h3 className="text-xl font-bold font-display text-gray-900 mb-7">
-                  {service.title}
-                </h3>
-
-                {/* Features */}
-                <ul className="space-y-3.5 mb-9">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <div
-                        className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center mt-0.5`}
-                      >
-                        <Check size={11} className="text-white" />
-                      </div>
-                      <span className="text-sm text-gray-600 leading-relaxed">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <button
-                  onClick={() => {
-                    const el = document.querySelector("#contact");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  className="absolute inset-x-0 top-0 h-36 pointer-events-none"
+                  style={{
+                    background: `linear-gradient(to bottom, ${service.accentLight}, transparent)`,
+                    borderRadius: "14px 14px 0 0",
                   }}
-                  className={`group/btn w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300 bg-gradient-to-r ${service.color} text-white hover:opacity-90 hover:scale-[1.02]`}
-                >
-                  {service.cta}
-                  <ArrowRight size={15} className="transition-transform group-hover/btn:translate-x-1" />
-                </button>
-              </div>
-            </SpotlightCard>
+                />
+
+                <div className="relative z-10 p-8 flex flex-col h-full">
+                  {/* Icon */}
+                  <div
+                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-md`}
+                  >
+                    <service.icon size={26} className="text-white" />
+                  </div>
+
+                  <p className="text-xs font-semibold tracking-widest uppercase text-gray-400 mb-2">
+                    {service.tagline}
+                  </p>
+                  <h3 className="text-xl font-bold font-display text-gray-900 mb-7">
+                    {service.title}
+                  </h3>
+
+                  {/* Features */}
+                  <ul className="space-y-3.5 mb-9 flex-1">
+                    {service.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3">
+                        <div
+                          className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center mt-0.5`}
+                        >
+                          <Check size={11} className="text-white" />
+                        </div>
+                        <span className="text-sm text-gray-600 leading-relaxed">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <button
+                    onClick={() => {
+                      const el = document.querySelector("#contact");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className={`group/btn w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-300 bg-gradient-to-r ${service.color} text-white hover:opacity-90 hover:scale-[1.02]`}
+                  >
+                    {service.cta}
+                    <ArrowRight size={15} className="transition-transform group-hover/btn:translate-x-1" />
+                  </button>
+                </div>
+              </AnimatedGradientBorder>
             </motion.div>
           ))}
         </div>
