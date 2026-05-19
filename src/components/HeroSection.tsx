@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import LiquidGlassButton from "@/components/ui/LiquidGlassButton";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 // ─── Browser-window mockup ─────────────────────────────────────────────────────
 function BrowserMockup() {
@@ -276,6 +277,7 @@ export default function HeroSection() {
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <AuroraBackground opacity={0.45} showRadialGradient={false} />
         <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-blue-50/70 via-indigo-50/30 to-transparent" />
         <div className="absolute -top-40 -right-40 w-[900px] h-[900px] rounded-full bg-blue-100/25 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-violet-50/30 blur-3xl" />

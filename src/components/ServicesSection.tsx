@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Globe, Bot, Package, Check, ArrowRight } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 const services = [
   {
@@ -87,6 +88,7 @@ export default function ServicesSection() {
     <section id="services" className="relative py-32 px-6 overflow-hidden bg-gray-50/50">
       {/* Background */}
       <div className="absolute inset-0 dot-grid opacity-50" />
+      <AuroraBackground opacity={0.2} showRadialGradient={false} />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}

@@ -45,6 +45,7 @@ const config: Config = {
         "glow-violet": "radial-gradient(ellipse at center, rgba(139,92,246,0.3) 0%, transparent 70%)",
       },
       animation: {
+        "aurora": "aurora 60s linear infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 6s ease-in-out infinite",
         "float-delayed": "float 6s ease-in-out infinite 2s",
@@ -69,6 +70,11 @@ const config: Config = {
         orbit: {
           "0%": { transform: "rotate(0deg) translateX(120px) rotate(0deg)" },
           "100%": { transform: "rotate(360deg) translateX(120px) rotate(-360deg)" },
+        },
+        aurora: {
+          "0%":   { backgroundPosition: "0% 50%, 0% 50%" },
+          "50%":  { backgroundPosition: "100% 50%, 100% 50%" },
+          "100%": { backgroundPosition: "0% 50%, 0% 50%" },
         },
       },
       boxShadow: {
