@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-import WaveBackground from "@/components/ui/WaveBackground";
+import MarbleBackground from "@/components/ui/MarbleBackground";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -67,8 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
         >
-          {/* Wave background */}
-          <WaveBackground />
+          {/* Marble flow-field background */}
+          <MarbleBackground />
         </div>
 
         {/* ── Content layer z:1 ───────────────────────────────────────────
