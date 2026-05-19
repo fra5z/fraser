@@ -40,19 +40,6 @@ const plans: Record<Tab, Plan[]> = {
       ],
     },
     {
-      name: "Business Growth",
-      price: "£1,600",
-      duration: "2 Years",
-      features: [
-        "Everything in Starter",
-        "Up to 10 pages",
-        "Advanced SEO setup",
-        "Lead capture forms",
-        "Google Analytics",
-        "24 months support",
-      ],
-    },
-    {
       name: "Enterprise",
       price: "£3,000",
       duration: "5 Years",
@@ -99,19 +86,6 @@ const plans: Record<Tab, Plan[]> = {
       ],
     },
     {
-      name: "Business Growth",
-      price: "£2,400",
-      duration: "2 Years",
-      features: [
-        "Everything in Starter",
-        "Advanced AI training",
-        "Appointment booking",
-        "CRM integrations",
-        "Multi-channel support",
-        "24 months support",
-      ],
-    },
-    {
       name: "Enterprise",
       price: "£5,000",
       duration: "5 Years",
@@ -154,18 +128,6 @@ const plans: Record<Tab, Plan[]> = {
         "Lead capture automation",
         "Human handoff option",
         "12 months support",
-      ],
-    },
-    {
-      name: "Business",
-      price: "£800",
-      duration: "2 Years",
-      features: [
-        "Everything in Starter",
-        "Advanced AI training",
-        "Appointment booking",
-        "Multi-channel support",
-        "24 months support",
       ],
     },
     {
@@ -317,7 +279,7 @@ export default function PricingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35 }}
-            className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"
+            className="grid gap-6 md:grid-cols-3"
           >
             {currentPlans.map((plan, i) => (
               <motion.div
