@@ -38,12 +38,15 @@ export default function SpotlightCard({ children, className = "", glowColor = "b
       className={`relative overflow-hidden ${className}`}
       style={{ "--mx": "50%", "--my": "50%", "--op": "0", "--rgb": rgb, ...style } as React.CSSProperties}
     >
-      {/* Border glow only */}
-      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.6), transparent 70%)`,
-          WebkitMaskImage: "linear-gradient(#fff,#fff) content-box, linear-gradient(#fff,#fff)",
-          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1.5px" }} />
-      {children}
+      {/* Gradient covers full card */}
+      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.7), transparent 65%)` }} />
+      {/* Punch-out: covers the interior, exposing only the border ring */}
+      <div className="pointer-events-none absolute inset-[1.5px] z-[1] rounded-[inherit] bg-white" />
+      {/* Children above everything */}
+      <div className="relative z-[2]">
+        {children}
+      </div>
     </div>
   );
 }
@@ -79,10 +82,9 @@ export function useSpotlight(rgb = "59, 111, 245") {
   // Overlay JSX to insert inside the card
   const overlay = (
     <>
-      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.6), transparent 70%)`,
-          WebkitMaskImage: "linear-gradient(#fff,#fff) content-box, linear-gradient(#fff,#fff)",
-          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1.5px" }} />
+      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.7), transparent 65%)` }} />
+      <div className="pointer-events-none absolute inset-[1.5px] z-[1] rounded-[inherit] bg-white" />
     </>
   );
 

@@ -125,7 +125,7 @@ export default function ServicesSection() {
               animate={inView ? "visible" : "hidden"}
               whileHover={{ y: -6 }}
             >
-            <SpotlightCard glowColor={service.glowColor} className="group h-full overflow-hidden cursor-pointer">
+            <SpotlightCard glowColor={service.glowColor} className="group h-full overflow-hidden cursor-pointer bg-white">
               {/* Featured badge */}
               {service.featured && (
                 <div className="absolute top-4 right-4 z-10">
