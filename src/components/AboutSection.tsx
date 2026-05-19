@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { NumberTicker } from "@/components/ui/NumberTicker";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 const stats = [
   { ticker: null,  value: "£0",  label: "Setup Fee"        },
@@ -57,16 +58,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              background: "rgba(59,111,245,0.07)",
-              border: "1px solid rgba(59,111,245,0.18)",
-              color: "#3b6ff5",
-            }}
-          >
-            About Frazs
-          </span>
+          <SectionBadge className="mb-4">About Frazs</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-6">
             The Agency Built for{" "}
             <span className="gradient-text">Business Growth</span>

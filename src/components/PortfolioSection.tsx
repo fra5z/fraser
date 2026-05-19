@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Bot } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 const projects = [
   {
@@ -31,16 +32,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              background: "rgba(59,111,245,0.07)",
-              border: "1px solid rgba(59,111,245,0.18)",
-              color: "#3b6ff5",
-            }}
-          >
-            Our Work
-          </span>
+          <SectionBadge className="mb-4">Our Work</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-5">
             Real Projects, <span className="gradient-text">Real Results</span>
           </h2>

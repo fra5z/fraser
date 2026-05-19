@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MessageSquare, Cpu, Rocket } from "lucide-react";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 const steps = [
   {
@@ -49,16 +50,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              background: "rgba(14,165,233,0.07)",
-              border: "1px solid rgba(14,165,233,0.18)",
-              color: "#0ea5e9",
-            }}
-          >
-            How It Works
-          </span>
+          <SectionBadge className="mb-4">How It Works</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-5">
             From Zero to Launch in 3 Steps
           </h2>

@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Star } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import AnimatedGradientBorder from "@/components/ui/AnimatedGradientBorder";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 type Tab = "website" | "bundle" | "ai";
 
@@ -211,16 +212,7 @@ export default function PricingSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-5"
-            style={{
-              background: "rgba(124,58,237,0.07)",
-              border: "1px solid rgba(124,58,237,0.18)",
-              color: "#7c3aed",
-            }}
-          >
-            Simple Pricing
-          </span>
+          <SectionBadge className="mb-5">Simple Pricing</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-5">
             Invest in Your Growth
           </h2>

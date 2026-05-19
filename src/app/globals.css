@@ -231,3 +231,14 @@ a {
   0%, 100% { opacity: 0.55; }
   50%       { opacity: 0.9; }
 }
+
+/* ── BorderBeam traveling light ──────────────────────── */
+@keyframes border-beam {
+  to { offset-distance: 100%; }
+}
+
+/* ── SectionBadge animated gradient border ───────────── */
+@keyframes gradient-shift {
+  from { background-position: 0 0, 0% 0%; }
+  to   { background-position: 0 0, 100% 0%; }
+}

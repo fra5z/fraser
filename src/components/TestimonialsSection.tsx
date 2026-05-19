@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 const testimonials = [
   {
@@ -76,16 +77,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              background: "rgba(245,158,11,0.08)",
-              border: "1px solid rgba(245,158,11,0.2)",
-              color: "#d97706",
-            }}
-          >
-            Client Results
-          </span>
+          <SectionBadge className="mb-4">Client Results</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-5">
             What Our Clients Say
           </h2>

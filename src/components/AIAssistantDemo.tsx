@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Bot, Send, Minimize2, Maximize2 } from "lucide-react";
+import SectionBadge from "@/components/ui/SectionBadge";
 
 interface Message {
   id: number;
@@ -98,16 +99,7 @@ export default function AIAssistantDemo() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span
-              className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6"
-              style={{
-                background: "rgba(124,58,237,0.07)",
-                border: "1px solid rgba(124,58,237,0.18)",
-                color: "#7c3aed",
-              }}
-            >
-              AI Assistant Demo
-            </span>
+            <SectionBadge className="mb-6">AI Assistant Demo</SectionBadge>
             <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-6 leading-tight">
               Your Business,{" "}
               <span className="gradient-text">Always Open</span>

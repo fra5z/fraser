@@ -2,6 +2,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Mail, CheckCircle, ArrowRight, Phone, Calendar } from "lucide-react";
+import SectionBadge from "@/components/ui/SectionBadge";
+import BorderBeam from "@/components/ui/BorderBeam";
 
 const services = [
   "Premium Website",
@@ -62,16 +64,7 @@ export default function ContactSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              background: "rgba(14,165,233,0.07)",
-              border: "1px solid rgba(14,165,233,0.18)",
-              color: "#0ea5e9",
-            }}
-          >
-            Get In Touch
-          </span>
+          <SectionBadge className="mb-4">Get In Touch</SectionBadge>
           <h2 className="text-3xl md:text-5xl font-black font-display text-gray-900 mb-5">
             Ready To Grow Your Business?
           </h2>
@@ -169,9 +162,10 @@ export default function ContactSection() {
             className="lg:col-span-3"
           >
             <div
-              className="rounded-2xl p-8 bg-white"
+              className="rounded-2xl p-8 bg-white relative overflow-hidden"
               style={{ border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
             >
+              <BorderBeam duration={10} />
               <AnimatePresence mode="wait">
                 {formState === "success" ? (
                   <motion.div
