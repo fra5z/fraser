@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-import AnimatedGridBackground from "@/components/ui/AnimatedGridBackground";
+import AuroraBackground from "@/components/ui/AuroraBackground";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -67,16 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
         >
-          {/* Animated dot grid canvas */}
-          <AnimatedGridBackground />
-
-          {/* Colour orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute rounded-full" style={{ width: "900px", height: "900px", top: "-300px", right: "-250px", background: "radial-gradient(circle, rgba(59,111,245,0.14) 0%, transparent 70%)", filter: "blur(50px)" }} />
-            <div className="absolute rounded-full" style={{ width: "700px", height: "700px", top: "38%", left: "-300px", background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)", filter: "blur(50px)" }} />
-            <div className="absolute rounded-full" style={{ width: "600px", height: "600px", bottom: "8%", right: "10%", background: "radial-gradient(circle, rgba(14,165,233,0.10) 0%, transparent 70%)", filter: "blur(50px)" }} />
-            <div className="absolute rounded-full" style={{ width: "500px", height: "500px", top: "8%", left: "30%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
-          </div>
+          {/* Aurora — drifting gradient blobs */}
+          <AuroraBackground />
         </div>
 
         {/* ── Content layer z:1 ───────────────────────────────────────────
