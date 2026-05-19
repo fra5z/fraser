@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Globe, Bot, Package, Check, ArrowRight } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const services = [
   {
@@ -12,6 +13,7 @@ const services = [
     accent: "#3b6ff5",
     accentLight: "rgba(59,111,245,0.08)",
     accentBorder: "rgba(59,111,245,0.15)",
+    glowColor: "blue" as const,
     features: [
       "Modern business websites",
       "Mobile responsive design",
@@ -30,6 +32,7 @@ const services = [
     accent: "#7c3aed",
     accentLight: "rgba(124,58,237,0.08)",
     accentBorder: "rgba(124,58,237,0.2)",
+    glowColor: "purple" as const,
     features: [
       "24/7 customer support",
       "AI-powered lead generation",
@@ -49,6 +52,7 @@ const services = [
     accent: "#0ea5e9",
     accentLight: "rgba(14,165,233,0.08)",
     accentBorder: "rgba(14,165,233,0.15)",
+    glowColor: "cyan" as const,
     features: [
       "Full business solution",
       "Complete setup & onboarding",
@@ -119,17 +123,9 @@ export default function ServicesSection() {
               variants={cardVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer bg-white"
-              style={{
-                border: `1px solid ${service.accentBorder}`,
-                boxShadow: "0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03)",
-                transition: "all 0.35s ease",
-              }}
-              whileHover={{
-                y: -6,
-                boxShadow: `0 20px 48px ${service.accentLight.replace("0.08","0.2")}, 0 4px 16px rgba(0,0,0,0.06)`,
-              }}
+              whileHover={{ y: -6 }}
             >
+            <SpotlightCard glowColor={service.glowColor} className="group h-full overflow-hidden cursor-pointer">
               {/* Featured badge */}
               {service.featured && (
                 <div className="absolute top-4 right-4 z-10">
@@ -190,6 +186,7 @@ export default function ServicesSection() {
                   <ArrowRight size={15} className="transition-transform group-hover/btn:translate-x-1" />
                 </button>
               </div>
+            </SpotlightCard>
             </motion.div>
           ))}
         </div>
