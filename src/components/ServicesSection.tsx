@@ -41,7 +41,6 @@ const services = [
       "Trained on your business data",
     ],
     cta: "Explore AI Assistants",
-    featured: true,
   },
   {
     icon: Package,
@@ -60,6 +59,7 @@ const services = [
       "Google Business Profile setup included",
     ],
     cta: "Explore Bundle",
+    featured: true,
   },
 ];
 
