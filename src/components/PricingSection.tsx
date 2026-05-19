@@ -56,8 +56,6 @@ const plans: Record<Tab, Plan[]> = {
       name: "Enterprise",
       price: "£3,000",
       duration: "5 Years",
-      popular: true,
-      note: "Best long-term value for growing businesses.",
       features: [
         "Everything in Business Growth",
         "Unlimited pages",
@@ -66,6 +64,22 @@ const plans: Record<Tab, Plan[]> = {
         "Priority support",
         "60 months support",
         "Free annual redesign",
+      ],
+    },
+    {
+      name: "Lifetime Access",
+      price: "£6,000",
+      duration: "Forever",
+      popular: true,
+      note: "One payment. Yours for life. Never pay again.",
+      features: [
+        "Everything in Enterprise",
+        "Lifetime ownership",
+        "Unlimited pages",
+        "Full SEO strategy",
+        "Free redesigns every 2 years",
+        "Lifetime priority support",
+        "No recurring fees — ever",
       ],
     },
   ],
@@ -101,8 +115,6 @@ const plans: Record<Tab, Plan[]> = {
       name: "Enterprise",
       price: "£5,000",
       duration: "5 Years",
-      popular: true,
-      note: "Complete AI-powered business solution.",
       features: [
         "Everything in Business Growth",
         "Full AI automation suite",
@@ -111,6 +123,22 @@ const plans: Record<Tab, Plan[]> = {
         "Priority 24/7 support",
         "60 months support",
         "Quarterly strategy calls",
+      ],
+    },
+    {
+      name: "Lifetime Access",
+      price: "£10,000",
+      duration: "Forever",
+      popular: true,
+      note: "One payment. Website + AI, owned forever.",
+      features: [
+        "Everything in Enterprise",
+        "Lifetime website ownership",
+        "Lifetime AI assistant",
+        "Unlimited AI retraining",
+        "Free redesigns every 2 years",
+        "Lifetime priority 24/7 support",
+        "No recurring fees — ever",
       ],
     },
   ],
@@ -144,7 +172,6 @@ const plans: Record<Tab, Plan[]> = {
       name: "Enterprise",
       price: "£2,000",
       duration: "5 Years",
-      popular: true,
       features: [
         "Everything in Business",
         "Full AI automation suite",
@@ -152,6 +179,21 @@ const plans: Record<Tab, Plan[]> = {
         "Analytics dashboard",
         "Priority 24/7 support",
         "60 months support",
+      ],
+    },
+    {
+      name: "Lifetime Access",
+      price: "£4,000",
+      duration: "Forever",
+      popular: true,
+      note: "One payment. AI assistant owned for life.",
+      features: [
+        "Everything in Enterprise",
+        "Lifetime AI assistant ownership",
+        "Unlimited AI retraining",
+        "Custom AI workflows",
+        "Lifetime priority 24/7 support",
+        "No recurring fees — ever",
       ],
     },
   ],
@@ -275,7 +317,7 @@ export default function PricingSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35 }}
-            className="grid gap-6 md:grid-cols-3"
+            className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"
           >
             {currentPlans.map((plan, i) => (
               <motion.div
@@ -284,8 +326,7 @@ export default function PricingSection() {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                className={plan.popular ? "md:scale-105 md:-translate-y-2" : ""}
-                whileHover={{ y: plan.popular ? -4 : -6 }}
+                whileHover={{ y: -6 }}
               >
                 <PlanCardShell plan={plan}>
                   {/* Popular gradient top bar */}
