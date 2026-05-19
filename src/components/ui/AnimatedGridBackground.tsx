@@ -14,15 +14,13 @@ export default function AnimatedGridBackground() {
 
     let animId: number;
     let lastTime = 0;
-    const INTERVAL = 1000 / 30; // 30 fps cap — light on CPU
+    const INTERVAL = 1000 / 30;
 
-    const SPACING = 36;
-    const DOT_RADIUS = 1.3;
-    const MAX_OPACITY = 0.13;
-    const WAVE_SPEED = 0.45;
-    const WAVE_FREQ = 0.011;
-    const MOUSE_RADIUS = 200;
-    const MOUSE_BOOST = 0.18;
+    const SPACING = 38;
+    const DOT_RADIUS = 1.5;
+    const WAVE_SPEED = 0.4;
+    const WAVE_FREQ = 0.010;
+    const MOUSE_RADIUS = 220;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -30,8 +28,6 @@ export default function AnimatedGridBackground() {
       const h = window.innerHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
-      canvas.style.width = w + "px";
-      canvas.style.height = h + "px";
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
@@ -51,6 +47,7 @@ export default function AnimatedGridBackground() {
       const W = window.innerWidth;
       const H = window.innerHeight;
 
+      // White canvas
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, W, H);
 
@@ -64,24 +61,25 @@ export default function AnimatedGridBackground() {
       const ox = (W % SPACING) / 2;
       const oy = (H % SPACING) / 2;
 
+      ctx.fillStyle = "rgb(59,111,245)";
+
       for (let c = 0; c < cols; c++) {
         for (let r = 0; r < rows; r++) {
           const x = ox + c * SPACING;
           const y = oy + r * SPACING;
 
-          // Ripple wave radiating from centre
+          // Wave ripple from centre
           const dc = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
           const wave = Math.sin(dc * WAVE_FREQ - t * WAVE_SPEED) * 0.5 + 0.5;
 
-          // Mouse proximity spotlight
+          // Mouse spotlight
           const dm = Math.sqrt((x - mx) ** 2 + (y - my) ** 2);
-          const boost = Math.max(0, 1 - dm / MOUSE_RADIUS) * MOUSE_BOOST;
+          const boost = Math.max(0, 1 - dm / MOUSE_RADIUS) * 0.30;
 
-          const alpha = Math.min(0.22, wave * MAX_OPACITY + boost);
-          if (alpha < 0.005) continue;
+          // Base range: 0.05 → 0.22, plus mouse boost up to 0.30
+          const alpha = Math.min(0.45, wave * 0.17 + 0.05 + boost);
 
           ctx.globalAlpha = alpha;
-          ctx.fillStyle = "rgb(59,111,245)";
           ctx.beginPath();
           ctx.arc(x, y, DOT_RADIUS, 0, Math.PI * 2);
           ctx.fill();
@@ -106,7 +104,13 @@ export default function AnimatedGridBackground() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: -9 }}
+      style={{
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        display: "block",
+      }}
     />
   );
 }

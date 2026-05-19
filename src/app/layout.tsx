@@ -58,57 +58,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased text-gray-900 overflow-x-hidden">
-        {/* Animated dot-grid — sits at z:-9, above solid white base */}
-        <AnimatedGridBackground />
 
-        {/* Gradient orbs — soft coloured depth at z:-8, above the grid */}
+        {/* ── Background layer z:0 ────────────────────────────────────────
+            Fixed wrapper holds both the animated canvas and the colour
+            orbs. Positive z-index guarantees it's never buried under a
+            painted body/html background box.
+        ──────────────────────────────────────────────────────────────── */}
         <div
-          className="fixed inset-0 pointer-events-none overflow-hidden"
-          style={{ zIndex: -8 }}
+          style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
         >
-          {/* Blue — top right */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "900px", height: "900px",
-              top: "-300px", right: "-250px",
-              background: "radial-gradient(circle, rgba(59,111,245,0.13) 0%, transparent 70%)",
-              filter: "blur(50px)",
-            }}
-          />
-          {/* Purple — mid left */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "700px", height: "700px",
-              top: "38%", left: "-300px",
-              background: "radial-gradient(circle, rgba(124,58,237,0.11) 0%, transparent 70%)",
-              filter: "blur(50px)",
-            }}
-          />
-          {/* Cyan — lower centre-right */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "600px", height: "600px",
-              bottom: "8%", right: "10%",
-              background: "radial-gradient(circle, rgba(14,165,233,0.09) 0%, transparent 70%)",
-              filter: "blur(50px)",
-            }}
-          />
-          {/* Violet — upper centre */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "500px", height: "500px",
-              top: "8%", left: "30%",
-              background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
-              filter: "blur(60px)",
-            }}
-          />
+          {/* Animated dot grid canvas */}
+          <AnimatedGridBackground />
+
+          {/* Colour orbs */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute rounded-full" style={{ width: "900px", height: "900px", top: "-300px", right: "-250px", background: "radial-gradient(circle, rgba(59,111,245,0.14) 0%, transparent 70%)", filter: "blur(50px)" }} />
+            <div className="absolute rounded-full" style={{ width: "700px", height: "700px", top: "38%", left: "-300px", background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)", filter: "blur(50px)" }} />
+            <div className="absolute rounded-full" style={{ width: "600px", height: "600px", bottom: "8%", right: "10%", background: "radial-gradient(circle, rgba(14,165,233,0.10) 0%, transparent 70%)", filter: "blur(50px)" }} />
+            <div className="absolute rounded-full" style={{ width: "500px", height: "500px", top: "8%", left: "30%", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          </div>
         </div>
 
-        {children}
+        {/* ── Content layer z:1 ───────────────────────────────────────────
+            All page content sits above the background. Transparent areas
+            (section padding, headings, gaps) let the dots show through.
+        ──────────────────────────────────────────────────────────────── */}
+        <div style={{ position: "relative", zIndex: 1 }}>
+          {children}
+        </div>
+
       </body>
     </html>
   );
