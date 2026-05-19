@@ -45,7 +45,7 @@ export default function AboutSection() {
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="about" className="relative py-32 px-6 overflow-hidden bg-white">
+    <section id="about" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto">

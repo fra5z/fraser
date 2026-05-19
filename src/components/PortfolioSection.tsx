@@ -21,7 +21,7 @@ export default function PortfolioSection() {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section id="portfolio" className="relative py-32 px-6 overflow-hidden bg-white">
+    <section id="portfolio" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div ref={ref} className="relative z-10 max-w-5xl mx-auto">

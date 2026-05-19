@@ -44,6 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
+import FlowFieldBackground from "@/components/ui/FlowFieldBackground";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -55,7 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased bg-[#03030a] text-white overflow-x-hidden">
+      <body className="antialiased bg-white text-gray-900 overflow-x-hidden">
+        {/* Fixed flow field behind entire site */}
+        <div className="fixed inset-0 -z-10">
+          <FlowFieldBackground />
+        </div>
         {children}
       </body>
     </html>

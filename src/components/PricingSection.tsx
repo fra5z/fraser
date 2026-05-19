@@ -200,7 +200,7 @@ export default function PricingSection() {
   const isAI = activeTab === "ai";
 
   return (
-    <section id="pricing" className="relative py-32 px-6 overflow-hidden bg-white">
+    <section id="pricing" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto">

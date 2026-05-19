@@ -79,7 +79,7 @@ export default function FAQSection() {
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="faq" className="relative py-32 px-6 overflow-hidden bg-gray-50/60">
+    <section id="faq" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-50" />
 
       <div ref={ref} className="relative z-10 max-w-3xl mx-auto">

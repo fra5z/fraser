@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section id="testimonials" className="relative py-32 overflow-hidden bg-gray-50/60">
+    <section id="testimonials" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-50" />
 
       <div ref={ref} className="relative z-10 max-w-2xl mx-auto px-6">

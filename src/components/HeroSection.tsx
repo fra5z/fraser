@@ -272,7 +272,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen bg-white flex items-center">
+    <section id="home" className="relative min-h-screen flex items-center">
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

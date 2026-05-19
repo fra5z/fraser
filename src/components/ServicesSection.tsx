@@ -84,7 +84,7 @@ export default function ServicesSection() {
   const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section id="services" className="relative py-32 px-6 overflow-hidden bg-gray-50/50">
+    <section id="services" className="relative py-32 px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 dot-grid opacity-50" />
 
