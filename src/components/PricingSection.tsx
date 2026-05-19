@@ -193,7 +193,7 @@ const cardVariants = {
 };
 
 export default function PricingSection() {
-  const [activeTab, setActiveTab] = useState<Tab>("website");
+  const [activeTab, setActiveTab] = useState<Tab>("bundle");
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
@@ -245,8 +245,22 @@ export default function PricingSection() {
                     transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                   />
                 )}
-                <span className={`relative z-10 ${activeTab === tab.id ? "text-gray-900" : "text-gray-500 hover:text-gray-700"}`}>
+                <span className={`relative z-10 flex items-center gap-2 ${activeTab === tab.id ? "text-gray-900" : "text-gray-500 hover:text-gray-700"}`}>
                   {tab.label}
+                  {tab.id === "bundle" && (
+                    <span
+                      className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider"
+                      style={{
+                        background: activeTab === "bundle"
+                          ? "linear-gradient(135deg, #3b6ff5, #7c3aed)"
+                          : "rgba(124,58,237,0.12)",
+                        color: activeTab === "bundle" ? "white" : "#7c3aed",
+                      }}
+                    >
+                      <Sparkles size={8} />
+                      POPULAR
+                    </span>
+                  )}
                 </span>
               </button>
             ))}
