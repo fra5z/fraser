@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-import FlowFieldBackground from "@/components/ui/FlowFieldBackground";
+import AnimatedGridBackground from "@/components/ui/AnimatedGridBackground";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -58,59 +58,52 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased bg-white text-gray-900 overflow-x-hidden">
-        {/* Fixed flow field behind entire site */}
-        <div className="fixed inset-0 -z-10">
-          <FlowFieldBackground />
-        </div>
+        {/* Animated dot-grid — sits at z:-9, above solid white base */}
+        <AnimatedGridBackground />
 
-        {/* Gradient orbs — add depth to white background */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: -9 }}>
-          {/* Blue orb — top right */}
+        {/* Gradient orbs — soft coloured depth at z:-8, above the grid */}
+        <div
+          className="fixed inset-0 pointer-events-none overflow-hidden"
+          style={{ zIndex: -8 }}
+        >
+          {/* Blue — top right */}
           <div
             className="absolute rounded-full"
             style={{
-              width: "800px",
-              height: "800px",
-              top: "-280px",
-              right: "-220px",
-              background: "radial-gradient(circle, rgba(59,111,245,0.10) 0%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-          />
-          {/* Purple orb — mid left */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "650px",
-              height: "650px",
-              top: "35%",
-              left: "-280px",
-              background: "radial-gradient(circle, rgba(124,58,237,0.09) 0%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-          />
-          {/* Cyan orb — lower centre */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "550px",
-              height: "550px",
-              bottom: "5%",
-              left: "35%",
-              background: "radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-          />
-          {/* Faint violet orb — top left */}
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: "500px",
-              height: "500px",
-              top: "10%",
-              left: "20%",
-              background: "radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 70%)",
+              width: "900px", height: "900px",
+              top: "-300px", right: "-250px",
+              background: "radial-gradient(circle, rgba(59,111,245,0.13) 0%, transparent 70%)",
               filter: "blur(50px)",
+            }}
+          />
+          {/* Purple — mid left */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: "700px", height: "700px",
+              top: "38%", left: "-300px",
+              background: "radial-gradient(circle, rgba(124,58,237,0.11) 0%, transparent 70%)",
+              filter: "blur(50px)",
+            }}
+          />
+          {/* Cyan — lower centre-right */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: "600px", height: "600px",
+              bottom: "8%", right: "10%",
+              background: "radial-gradient(circle, rgba(14,165,233,0.09) 0%, transparent 70%)",
+              filter: "blur(50px)",
+            }}
+          />
+          {/* Violet — upper centre */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: "500px", height: "500px",
+              top: "8%", left: "30%",
+              background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
+              filter: "blur(60px)",
             }}
           />
         </div>
