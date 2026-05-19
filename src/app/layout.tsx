@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased bg-white text-gray-900 overflow-x-hidden">
+      <body className="antialiased text-gray-900 overflow-x-hidden">
         {/* Animated dot-grid — sits at z:-9, above solid white base */}
         <AnimatedGridBackground />
 

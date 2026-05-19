@@ -18,8 +18,12 @@ html {
   overflow-x: hidden;
 }
 
+html {
+  background: #ffffff; /* white fallback before JS loads */
+}
+
 body {
-  background: #ffffff;
+  background: transparent; /* keep transparent so fixed canvas at z:-9 shows through */
   color: #0f172a;
   overflow-x: hidden;
   font-family: var(--font-inter);
