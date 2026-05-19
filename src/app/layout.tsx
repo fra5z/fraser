@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-import ParticleNetwork from "@/components/ui/ParticleNetwork";
+import WaveBackground from "@/components/ui/WaveBackground";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -67,8 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }}
         >
-          {/* Particle network */}
-          <ParticleNetwork />
+          {/* Wave background */}
+          <WaveBackground />
         </div>
 
         {/* ── Content layer z:1 ───────────────────────────────────────────
