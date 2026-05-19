@@ -38,14 +38,11 @@ export default function SpotlightCard({ children, className = "", glowColor = "b
       className={`relative overflow-hidden ${className}`}
       style={{ "--mx": "50%", "--my": "50%", "--op": "0", "--rgb": rgb, ...style } as React.CSSProperties}
     >
-      {/* Glow fill */}
+      {/* Border glow only */}
       <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(500px circle at var(--mx) var(--my), rgba(var(--rgb),0.10), transparent 70%)` }} />
-      {/* Border glow */}
-      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(250px circle at var(--mx) var(--my), rgba(var(--rgb),0.35), transparent 70%)`,
+        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.6), transparent 70%)`,
           WebkitMaskImage: "linear-gradient(#fff,#fff) content-box, linear-gradient(#fff,#fff)",
-          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1px" }} />
+          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1.5px" }} />
       {children}
     </div>
   );
@@ -83,11 +80,9 @@ export function useSpotlight(rgb = "59, 111, 245") {
   const overlay = (
     <>
       <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(500px circle at var(--mx) var(--my), rgba(var(--rgb),0.10), transparent 70%)` }} />
-      <div className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 rounded-[inherit]"
-        style={{ opacity: "var(--op)", background: `radial-gradient(250px circle at var(--mx) var(--my), rgba(var(--rgb),0.35), transparent 70%)`,
+        style={{ opacity: "var(--op)", background: `radial-gradient(200px circle at var(--mx) var(--my), rgba(var(--rgb),0.6), transparent 70%)`,
           WebkitMaskImage: "linear-gradient(#fff,#fff) content-box, linear-gradient(#fff,#fff)",
-          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1px" }} />
+          WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1.5px" }} />
     </>
   );
 
