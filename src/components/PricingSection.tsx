@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Star } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 type Tab = "website" | "bundle" | "ai";
 
@@ -251,7 +252,14 @@ export default function PricingSection() {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                className={`relative rounded-2xl overflow-hidden bg-white ${plan.popular ? "md:scale-105 md:-translate-y-2" : ""}`}
+                className={plan.popular ? "md:scale-105 md:-translate-y-2" : ""}
+                whileHover={{
+                  y: plan.popular ? -4 : -6,
+                }}
+              >
+              <SpotlightCard
+                glowColor={plan.popular ? "purple" : "blue"}
+                className={`relative rounded-2xl overflow-hidden bg-white h-full`}
                 style={{
                   border: plan.popular
                     ? "1px solid rgba(124,58,237,0.3)"
@@ -259,13 +267,6 @@ export default function PricingSection() {
                   boxShadow: plan.popular
                     ? "0 8px 40px rgba(124,58,237,0.12), 0 2px 8px rgba(0,0,0,0.04)"
                     : "0 1px 3px rgba(0,0,0,0.04)",
-                  transition: "all 0.35s ease",
-                }}
-                whileHover={{
-                  y: plan.popular ? -4 : -6,
-                  boxShadow: plan.popular
-                    ? "0 20px 60px rgba(124,58,237,0.18), 0 4px 16px rgba(0,0,0,0.06)"
-                    : "0 12px 40px rgba(59,111,245,0.1), 0 2px 8px rgba(0,0,0,0.06)",
                 }}
               >
                 {/* Popular gradient top bar */}
@@ -376,6 +377,7 @@ export default function PricingSection() {
                     <ArrowRight size={15} className="transition-transform group-hover/btn:translate-x-1" />
                   </button>
                 </div>
+              </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Zap, Shield, Target, TrendingUp } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const stats = [
   { value: "£0",   label: "Setup Fee"        },
@@ -84,13 +85,13 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center rounded-2xl p-6 bg-white"
-              style={{ border: "1px solid #e2e8f0", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
+              <SpotlightCard glowColor="blue" className="text-center rounded-2xl p-6 bg-white" style={{ border: "1px solid #e2e8f0", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
               <div className="text-4xl md:text-5xl font-black font-display mb-2 gradient-text">
                 {stat.value}
               </div>
               <p className="text-gray-500 text-sm">{stat.label}</p>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
@@ -104,14 +105,14 @@ export default function AboutSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
               whileHover={{ y: -5 }}
-              className="rounded-2xl p-6 cursor-default bg-white transition-all duration-300 hover:shadow-md"
-              style={{ border: "1px solid #e2e8f0" }}
             >
+              <SpotlightCard glowColor="blue" className="rounded-2xl p-6 cursor-default bg-white" style={{ border: "1px solid #e2e8f0" }}>
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-4 shadow-md`}>
                 <v.icon size={22} className="text-white" />
               </div>
               <h3 className="text-gray-900 font-bold font-display mb-3">{v.title}</h3>
               <p className="text-gray-500 text-sm leading-[1.75]">{v.description}</p>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

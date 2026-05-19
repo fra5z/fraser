@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const testimonials = [
   {
@@ -27,13 +28,7 @@ function StarRating({ count }: { count: number }) {
 
 function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
   return (
-    <div
-      className="flex-shrink-0 w-[340px] md:w-[380px] rounded-2xl p-6 relative overflow-hidden bg-white"
-      style={{
-        border: "1px solid #e2e8f0",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
-      }}
-    >
+    <SpotlightCard glowColor="blue" className="flex-shrink-0 w-[340px] md:w-[380px] rounded-2xl p-6 relative bg-white" style={{ border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
       {/* Quote icon */}
       <div className="absolute top-5 right-5 opacity-[0.06]">
         <Quote size={40} className="text-gray-900" />
@@ -61,7 +56,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
           </p>
         </div>
       </div>
-    </div>
+    </SpotlightCard>
   );
 }
 

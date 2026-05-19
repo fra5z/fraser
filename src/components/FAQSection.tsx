@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const faqs = [
   {
@@ -42,9 +43,8 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="rounded-2xl overflow-hidden bg-white"
-      style={{ border: "1px solid #e2e8f0" }}
     >
+    <SpotlightCard glowColor="blue" className="rounded-2xl bg-white" style={{ border: "1px solid #e2e8f0" }}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-gray-50"
@@ -69,6 +69,7 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
           </motion.div>
         )}
       </AnimatePresence>
+    </SpotlightCard>
     </motion.div>
   );
 }

@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Bot } from "lucide-react";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const projects = [
   {
@@ -55,10 +56,9 @@ export default function PortfolioSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="rounded-2xl p-8 bg-white group"
-              style={{ border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
             >
-              <div className="flex items-start gap-5">
+              <SpotlightCard glowColor="blue" className="rounded-2xl bg-white group" style={{ border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
+              <div className="flex items-start gap-5 p-6">
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center text-white font-black text-lg flex-shrink-0 shadow-md`}>
                   {p.initials}
                 </div>
@@ -91,6 +91,7 @@ export default function PortfolioSection() {
                   <p className="text-gray-400 text-xs italic">{p.result}</p>
                 </div>
               </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
