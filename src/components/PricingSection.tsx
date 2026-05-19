@@ -4,7 +4,6 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Check, Sparkles, ArrowRight, Star } from "lucide-react";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import AnimatedGradientBorder from "@/components/ui/AnimatedGradientBorder";
-import AuroraBackground from "@/components/ui/AuroraBackground";
 
 type Tab = "website" | "bundle" | "ai";
 
@@ -203,7 +202,6 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="relative py-32 px-6 overflow-hidden bg-white">
       <div className="absolute inset-0 dot-grid opacity-40" />
-      <AuroraBackground opacity={0.2} showRadialGradient={false} />
 
       <div ref={ref} className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
