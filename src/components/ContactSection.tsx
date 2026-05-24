@@ -39,12 +39,18 @@ export default function ContactSection() {
     e.preventDefault();
     setFormState("submitting");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          access_key: "10d111c9-745d-44c2-8264-54d8c8b62465",
+          subject: `New enquiry from ${form.name}${form.business ? ` — ${form.business}` : ""}`,
+          from_name: "Frazs Website",
+          ...form,
+        }),
       });
-      if (!res.ok) throw new Error("Failed");
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
       setFormState("success");
     } catch {
       setFormState("idle");
