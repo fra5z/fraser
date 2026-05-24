@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      access_key: process.env.WEB3FORMS_KEY,
+      access_key: "10d111c9-745d-44c2-8264-54d8c8b62465",
       subject: `New enquiry from ${name}${business ? ` — ${business}` : ""}`,
       from_name: "Frazs Website",
       replyto: email,
