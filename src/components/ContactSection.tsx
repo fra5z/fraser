@@ -39,22 +39,16 @@ export default function ContactSection() {
     e.preventDefault();
     setFormState("submitting");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formspree.io/f/mdajdqzj", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "10d111c9-745d-44c2-8264-54d8c8b62465",
-          subject: `New enquiry from ${form.name}${form.business ? ` — ${form.business}` : ""}`,
-          from_name: "Frazs Website",
-          ...form,
-        }),
+        body: JSON.stringify(form),
       });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.message);
+      if (!res.ok) throw new Error("Failed");
       setFormState("success");
-    } catch (err: unknown) {
+    } catch {
       setFormState("idle");
-      alert("Error: " + (err instanceof Error ? err.message : String(err)));
+      alert("Something went wrong — please email us directly at frazsagency@outlook.com");
     }
   };
 
