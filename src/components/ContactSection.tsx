@@ -52,9 +52,9 @@ export default function ContactSection() {
       const data = await res.json();
       if (!data.success) throw new Error(data.message);
       setFormState("success");
-    } catch {
+    } catch (err: unknown) {
       setFormState("idle");
-      alert("Something went wrong — please email us directly at frazsagency@outlook.com");
+      alert("Error: " + (err instanceof Error ? err.message : String(err)));
     }
   };
 
