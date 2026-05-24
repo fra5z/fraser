@@ -48,7 +48,7 @@ export default function ContactSection() {
       setFormState("success");
     } catch {
       setFormState("idle");
-      alert("Something went wrong — please email us directly at fra5er2007@outlook.com");
+      alert("Something went wrong — please email us directly at frazsagency@outlook.com");
     }
   };
 
@@ -93,7 +93,7 @@ export default function ContactSection() {
                 30-minute discovery call — no commitment, just a conversation about your goals.
               </p>
               <a
-                href="mailto:fra5er2007@outlook.com?subject=Book a Free Call — Frazs&body=Hi Fraser, I'd like to book a free 30-minute discovery call."
+                href="mailto:frazsagency@outlook.com?subject=Book a Free Call — Frazs&body=Hi Fraser, I'd like to book a free 30-minute discovery call."
                 className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{
                   background: "linear-gradient(135deg, #3b6ff5, #7c3aed)",
@@ -124,7 +124,7 @@ export default function ContactSection() {
 
             {/* Email */}
             <a
-              href="mailto:fra5er2007@outlook.com"
+              href="mailto:frazsagency@outlook.com"
               className="block rounded-2xl p-6 bg-white transition-all duration-300 hover:border-blue-200 hover:shadow-sm"
               style={{ border: "1px solid #e2e8f0" }}
             >
@@ -133,7 +133,7 @@ export default function ContactSection() {
                   <Mail size={18} className="text-blue-500" />
                 </div>
                 <div>
-                  <p className="text-gray-900 font-semibold text-sm mb-0.5">fra5er2007@outlook.com</p>
+                  <p className="text-gray-900 font-semibold text-sm mb-0.5">frazsagency@outlook.com</p>
                   <p className="text-gray-400 text-xs">We reply within 24 hours</p>
                 </div>
               </div>

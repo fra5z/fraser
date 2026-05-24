@@ -68,11 +68,11 @@ export default function Footer() {
                 07947 449 469
               </a>
               <a
-                href="mailto:fra5er2007@outlook.com"
+                href="mailto:frazsagency@outlook.com"
                 className="flex items-center gap-2.5 text-gray-500 hover:text-gray-900 text-sm transition-colors group"
               >
                 <Mail size={13} className="text-blue-500 flex-shrink-0" />
-                fra5er2007@outlook.com
+                frazsagency@outlook.com
               </a>
             </div>
 
